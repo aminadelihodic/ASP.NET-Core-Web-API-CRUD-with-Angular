@@ -1,0 +1,8 @@
+form{
+    width: 50%;
+    position: fixed;
+    left: 25%;
+}
+button{
+    display: flex;
+}

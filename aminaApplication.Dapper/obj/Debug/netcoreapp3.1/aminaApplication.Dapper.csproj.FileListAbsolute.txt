@@ -1,0 +1,13 @@
+C:\Users\amina\source\repos\amina_WebApplication\aminaApplication.Dapper\bin\Debug\netcoreapp3.1\aminaApplication.Dapper.deps.json
+C:\Users\amina\source\repos\amina_WebApplication\aminaApplication.Dapper\bin\Debug\netcoreapp3.1\aminaApplication.Dapper.dll
+C:\Users\amina\source\repos\amina_WebApplication\aminaApplication.Dapper\bin\Debug\netcoreapp3.1\aminaApplication.Dapper.pdb
+C:\Users\amina\source\repos\amina_WebApplication\aminaApplication.Dapper\bin\Debug\netcoreapp3.1\aminaApplication.Domain.dll
+C:\Users\amina\source\repos\amina_WebApplication\aminaApplication.Dapper\bin\Debug\netcoreapp3.1\aminaApplication.Domain.pdb
+C:\Users\amina\source\repos\amina_WebApplication\aminaApplication.Dapper\obj\Debug\netcoreapp3.1\aminaApplication.Dapper.csproj.AssemblyReference.cache
+C:\Users\amina\source\repos\amina_WebApplication\aminaApplication.Dapper\obj\Debug\netcoreapp3.1\aminaApplication.Dapper.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\amina\source\repos\amina_WebApplication\aminaApplication.Dapper\obj\Debug\netcoreapp3.1\aminaApplication.Dapper.AssemblyInfoInputs.cache
+C:\Users\amina\source\repos\amina_WebApplication\aminaApplication.Dapper\obj\Debug\netcoreapp3.1\aminaApplication.Dapper.AssemblyInfo.cs
+C:\Users\amina\source\repos\amina_WebApplication\aminaApplication.Dapper\obj\Debug\netcoreapp3.1\aminaApplication.Dapper.csproj.CoreCompileInputs.cache
+C:\Users\amina\source\repos\amina_WebApplication\aminaApplication.Dapper\obj\Debug\netcoreapp3.1\aminaApplication.Dapper.csproj.CopyComplete
+C:\Users\amina\source\repos\amina_WebApplication\aminaApplication.Dapper\obj\Debug\netcoreapp3.1\aminaApplication.Dapper.dll
+C:\Users\amina\source\repos\amina_WebApplication\aminaApplication.Dapper\obj\Debug\netcoreapp3.1\aminaApplication.Dapper.pdb

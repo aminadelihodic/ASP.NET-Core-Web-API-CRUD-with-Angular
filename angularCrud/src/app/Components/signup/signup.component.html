@@ -1,0 +1,20 @@
+<div class="auth-wrapper">
+    <form class="form-signin " [formGroup]="signupForm" (ngSubmit)="registerUser()">
+        <h3 class="h3 mb-3 font-weight-normal text-center">Please sign up</h3>
+        <div class="form-group m-3">
+            <label>Username</label>
+            <input type="text" class="form-control" formControlName="Username" placeholder="Enter username" required>
+        </div>
+        <div class="form-group m-3">
+            <label>Email address</label>
+            <input type="email" class="form-control " formControlName="Email" placeholder="Enter email" required>
+        </div>
+        <div class="form-group m-3">
+            <label>Password</label>
+            <input type="password" class="form-control" formControlName="Password" placeholder="Password" required>
+        </div>
+        <a href="" class="link m-3">Already have an account? Sign in</a>
+        <button type="submit" class="btn btn-block btn-primary m-3">Sign up</button>
+
+    </form>
+</div>

@@ -1,0 +1,74 @@
+<table class="table">
+  <thead>
+    <tr>
+
+      <th scope="col">Name</th>
+      <th scope="col">CountryName</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody class="cities">
+    <tr *ngFor="let city of cities">
+
+      <td>{{city.Name}}</td>
+      <td>{{city.CountryName}}</td>
+      <td>
+        <button class="btn btn-primary mx-3" (click)="editButtonClick(city.Id)">Edit</button>
+      </td>
+      <td>
+        <button class="delete" class="btn btn-danger" title="delete city" (click)="delete(city)">Delete</button>
+
+      </td>
+
+
+    </tr>
+  </tbody>
+</table>
+<button type="button" style="margin-left: 25%;margin-top: 1%;" class="btn btn-primary" data-bs-toggle="modal"
+  data-bs-target="#exampleModal">
+  Add city
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">City details</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formValue">
+          <div class="form-group">
+            <label for="new-city">Name</label>
+            <input type="text" formControlName="Name" class="form-control" id="new-city" #newCity
+              aria-describedby="nameHelp" placeholder="Enter name">
+            <small id="nameHelp" class="form-text text-muted"></small>
+          </div>
+          <div class="form-group">
+            <label for="CountryName">CountryName</label>
+            <select type="text" formControlName="CountryId" class="form-control" id="CountryId" #country
+              aria-describedby="nameHelp" placeholder="Enter name">
+              <option *ngFor="let country of countryList" [value]="country.Id">{{country.Name}}</option>
+            </select>
+            <small id="nameHelp" class="form-text text-muted"></small>
+
+
+
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="cancel" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+        <button class="add-button" class="btn btn-primary" (click)="addCity(); newCity.value='';">
+          Add city
+        </button>
+
+      </div>
+    </div>
+  </div>
+</div>

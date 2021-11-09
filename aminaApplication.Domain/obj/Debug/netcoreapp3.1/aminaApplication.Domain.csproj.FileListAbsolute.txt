@@ -1,0 +1,10 @@
+C:\Users\amina\source\repos\amina_WebApplication\aminaApplication.Domain\bin\Debug\netcoreapp3.1\aminaApplication.Domain.deps.json
+C:\Users\amina\source\repos\amina_WebApplication\aminaApplication.Domain\bin\Debug\netcoreapp3.1\aminaApplication.Domain.dll
+C:\Users\amina\source\repos\amina_WebApplication\aminaApplication.Domain\bin\Debug\netcoreapp3.1\aminaApplication.Domain.pdb
+C:\Users\amina\source\repos\amina_WebApplication\aminaApplication.Domain\obj\Debug\netcoreapp3.1\aminaApplication.Domain.csproj.AssemblyReference.cache
+C:\Users\amina\source\repos\amina_WebApplication\aminaApplication.Domain\obj\Debug\netcoreapp3.1\aminaApplication.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\amina\source\repos\amina_WebApplication\aminaApplication.Domain\obj\Debug\netcoreapp3.1\aminaApplication.Domain.AssemblyInfoInputs.cache
+C:\Users\amina\source\repos\amina_WebApplication\aminaApplication.Domain\obj\Debug\netcoreapp3.1\aminaApplication.Domain.AssemblyInfo.cs
+C:\Users\amina\source\repos\amina_WebApplication\aminaApplication.Domain\obj\Debug\netcoreapp3.1\aminaApplication.Domain.csproj.CoreCompileInputs.cache
+C:\Users\amina\source\repos\amina_WebApplication\aminaApplication.Domain\obj\Debug\netcoreapp3.1\aminaApplication.Domain.dll
+C:\Users\amina\source\repos\amina_WebApplication\aminaApplication.Domain\obj\Debug\netcoreapp3.1\aminaApplication.Domain.pdb

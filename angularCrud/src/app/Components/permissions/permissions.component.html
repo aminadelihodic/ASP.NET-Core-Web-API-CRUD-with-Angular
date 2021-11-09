@@ -1,0 +1,67 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Description</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+
+    </tr>
+  </thead>
+  <tbody class="permissions">
+    <tr *ngFor="let permission of permissions">
+      <td>{{permission.Id}}</td>
+      <td>{{permission.Description}}</td>
+      <td>
+        <button type="button" (click)="edit(permission.Id)" class="btn btn-primary mx-3">Edit</button>
+      </td>
+      <td>
+        <button class="delete" class="btn btn-danger" title="delete country"
+          (click)="delete(permission)">Delete</button>
+
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+<button type="button" style="margin-left: 25%;margin-top: 1%;" class="btn btn-primary" data-bs-toggle="modal"
+  data-bs-target="#exampleModal">
+  Add permission
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Permission details</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formValue">
+          <div class="form-group">
+            <label for="Id">Id</label>
+            <input type="text" formControlName="Id" class="form-control" id="new-permission" #newPermission
+              aria-describedby="nameHelp" placeholder="Enter name">
+            <small id="nameHelp" class="form-text text-muted"></small>
+          </div>
+          <div class="form-group">
+            <label for="new-description">Description</label>
+            <input type="text" formControlName="Description" class="form-control" id="new-description" #newDescription
+              aria-describedby="nameHelp" placeholder="Enter name">
+            <small id="nameHelp" class="form-text text-muted"></small>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button class="add-button" class="btn btn-primary" (click)="add(); newPermission.value=''">
+          Add permission
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

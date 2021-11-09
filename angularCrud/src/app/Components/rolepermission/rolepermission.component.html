@@ -1,0 +1,11 @@
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">RoleId</th>
+      <th scope="col">PermissionId</th>
+    </tr>
+  </thead>
+  <tbody class="rolepermissions">
+    <tr *ngFor="let rolepermission of rolepermissions">
+      <td>{{rolepermission.RoleId}}</td>
+      <td>{{rolepermission.PermissionId}}</td>
