@@ -11,7 +11,16 @@ using System.Threading.Tasks;
 
 namespace aminaApplication.Dapper.Repository
 {
-    public class RepositoryCity : RepositoryGeneric<City>, IRepositoryCity
+    /*
+     
+    repository <T,TName>
+    {
+        publiv TName tableNAme
+    }     
+     */
+
+
+    public class RepositoryCity : IRepositoryGeneric<City>, IRepositoryCity
     {
         protected readonly IConfiguration _configuration;
         public RepositoryCity(IConfiguration configuration)

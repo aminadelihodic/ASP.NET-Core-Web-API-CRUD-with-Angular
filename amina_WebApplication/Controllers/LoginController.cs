@@ -39,7 +39,7 @@ namespace amina_WebApplication.Controllers
 
         
         [HttpGet]
-        [Route("Signin/{username}/{password}")]
+        [Route("{username}/{password}")]
         public async Task<IActionResult> Signin(string username,string password)
         {
             try
@@ -64,7 +64,7 @@ namespace amina_WebApplication.Controllers
             }
         }
         [HttpPost]
-        [Route("Signin/{username}/{password}")]
+        [Route("{username}/{password}")]
         public async Task<IActionResult> SignIn(string username, string password)
         {
             try
