@@ -19,7 +19,7 @@ namespace amina_WebApplication.Controllers
             _repositoryRole = repositoryRole;
         }
 
-        [HttpPost("add_role")]
+        [HttpPost]
 
         public IActionResult Insert([FromBody] Role role)
         {
@@ -34,7 +34,7 @@ namespace amina_WebApplication.Controllers
             _repositoryRole.Delete(id);
             return Ok();
         }
-        [HttpGet("get_role")]
+        [HttpGet]
 
         public async Task<IActionResult> GetAll()
         {

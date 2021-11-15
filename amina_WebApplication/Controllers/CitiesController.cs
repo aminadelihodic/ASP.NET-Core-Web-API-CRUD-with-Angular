@@ -27,13 +27,13 @@ namespace amina_WebApplication.Controllers
             _repositoryCity.Delete(id);
             return Ok();
         }
-        [HttpGet("get_cities")]
+        [HttpGet]
         public async Task<IActionResult> GetAllAsync()
         {
             var cities = await _repositoryCity.GetAll();
             return Ok(cities);
         }
-        [HttpPost("add_city")]
+        [HttpPost]
         public IActionResult Insert([FromBody] City city)
         {
             _repositoryCity.Insert(city);

@@ -27,7 +27,7 @@ namespace amina_WebApplication.Controllers
 
         }
 
-        [HttpPost("add_user")]
+        [HttpPost]
 
         public IActionResult Insert([FromBody] User user)
         {
@@ -42,7 +42,7 @@ namespace amina_WebApplication.Controllers
             _repositoryUser.Delete(id);
             return Ok();
         }
-        [HttpGet("get_user")]
+        [HttpGet]
         public async Task<IActionResult> GetAll()
         {
             var users = await _repositoryUser.GetAll();

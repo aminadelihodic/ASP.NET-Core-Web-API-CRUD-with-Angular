@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace amina_WebApplication.Controllers
 {
-    [Route("api/permissions")]
+    [Route("api/permissions/")]
     [ApiController]
     public class PermissionsController : Controller
     {
@@ -19,7 +19,7 @@ namespace amina_WebApplication.Controllers
             _repositoryPermission = repositoryPermission;
         }
 
-        [HttpPost("add_permission")]
+        [HttpPost]
 
         public IActionResult Insert([FromBody] Permission permission)
         {
@@ -34,7 +34,7 @@ namespace amina_WebApplication.Controllers
             _repositoryPermission.Delete(id);
             return Ok();
         }
-        [HttpGet("get_permission")]
+        [HttpGet]
 
         public async Task<IActionResult> GetAll()
         {

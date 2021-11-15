@@ -20,7 +20,7 @@ namespace amina_WebApplication.Controllers
 
         }
 
-        [HttpPost("add_country")]
+        [HttpPost]
         public IActionResult Insert([FromBody] Country country)
         {
             _countryRepository.Insert(country);
@@ -35,7 +35,7 @@ namespace amina_WebApplication.Controllers
             _countryRepository.Delete(id);
             return Ok();
         }
-        [HttpGet("get_country")]
+        [HttpGet]
 
         public async Task<IActionResult> GetAll()
         {
