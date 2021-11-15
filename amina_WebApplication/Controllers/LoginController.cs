@@ -39,14 +39,14 @@ namespace amina_WebApplication.Controllers
 
         
         [HttpGet]
-        [Route("Signin/{id}/{username}/{password}")]
-        public async Task<IActionResult> Signin(int Id,string username,string password)
+        [Route("Signin/{username}/{password}")]
+        public async Task<IActionResult> Signin(string username,string password)
         {
             try
             {
                     Login model = new Login()
                     {
-                        Id = Id,
+                     
                         Username = username,
                         Password = password
                     };
