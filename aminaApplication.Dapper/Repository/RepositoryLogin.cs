@@ -35,7 +35,7 @@ namespace aminaApplication.Dapper.Repository
                 {
                     dbConnection.Open();
                     string query = @"SELECT *
-                                     FROM login WHERE username=@username and password=password";
+                                     FROM login WHERE username=@username and password=@password";
                     return await dbConnection.QueryFirstOrDefaultAsync<Login>(query,new { username,password });
                 }
             }
