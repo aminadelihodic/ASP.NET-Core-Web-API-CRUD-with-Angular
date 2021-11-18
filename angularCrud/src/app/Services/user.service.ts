@@ -14,7 +14,7 @@ export class UserService {
   readonly url = "https://localhost:44331/api/users/";
 
   getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(`${this.url}get_user`).pipe(map((res: any) => {
+    return this.http.get<User[]>(this.url).pipe(map((res: any) => {
       return res;
     }));
   }
@@ -24,12 +24,12 @@ export class UserService {
     return this.http.get<User>(url);
   }
   addUser(user: User): Observable<User> {
-    return this.http.post<User>(`${this.url}add_user`, user, this.httpOptions);
+    return this.http.post<User>(this.url, user, this.httpOptions);
   }
-  deleteUser(id: number): Observable<User> {
-    const url = `${this.url}${id}`;
-
-    return this.http.delete<User>(url, this.httpOptions);
+  deleteUser(user:User): Observable<User> {
+    const url = this.url;
+    const newHttpOptions = {...this.httpOptions,body:user}
+    return this.http.delete<User>(url, newHttpOptions);
   }
   updateUser(user: User, id: number): Observable<User> {
     user.Id = id;

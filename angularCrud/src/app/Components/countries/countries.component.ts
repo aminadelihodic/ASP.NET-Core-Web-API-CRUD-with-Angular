@@ -35,7 +35,7 @@ export class CountriesComponent implements OnInit {
   delete(country: Country): void {
     alert("Deleted successfully")
     this.countries = this.countries.filter(h => h !== country);
-    this.countryService.deleteCountry(country.Id).subscribe()
+    this.countryService.deleteCountry(country).subscribe()
   }
 
   editButtonClick(countryId: number) {

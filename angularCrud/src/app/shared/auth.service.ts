@@ -11,7 +11,7 @@ import { User } from '../Model/user-model';
 })
 
 export class AuthService {
-  endpoint: string = 'https://localhost:44331/api/login';
+  endpoint: string = 'https://localhost:44331/api/login/';
 
   headers = new HttpHeaders().set('Content-Type', 'application/json');
   currentUser = {};
@@ -22,7 +22,7 @@ export class AuthService {
   ) { }
 
   signUp(login: Login): Observable<Login> {
-    let api = `${this.endpoint}/Registration`;
+    let api = `${this.endpoint}Registration`;
     return this.http.post<Login>(api, login)
       .pipe(
         catchError(this.handleError)
@@ -32,7 +32,7 @@ export class AuthService {
 
   signIn(login: Login) {
 
-    return this.http.post<Login>(`${this.endpoint}/signin/${login.Username}/${login.Password}`, login)
+    return this.http.post<Login>(`${this.endpoint}${login.Username}/${login.Password}`, login)
       .subscribe((res: Login) => {
         localStorage.setItem('access_token', res.Token)
         this.getUserProfile(res.Id).subscribe((res) => {
@@ -60,7 +60,7 @@ export class AuthService {
 
 
   getUserProfile(id: string | null): Observable<Login> {
-    let api = `${this.endpoint}/user-profile/${id}`;
+    let api = `${this.endpoint}user-profile/${id}`;
     return this.http.get<Login>(api, { headers: this.headers }).pipe(
       map((res: Login) => {
         return res || {}

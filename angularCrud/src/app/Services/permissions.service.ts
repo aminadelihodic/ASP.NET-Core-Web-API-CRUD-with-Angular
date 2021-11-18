@@ -14,7 +14,7 @@ export class PermissionsService {
   readonly url = "https://localhost:44331/api/permissions/";
 
   public getPermissions(): Observable<Permission[]> {
-    return this.http.get<Permission[]>(`${this.url}get_permission`).pipe(map((res: any) => {
+    return this.http.get<Permission[]>(this.url).pipe(map((res: any) => {
       return res;
     }));
   }
@@ -23,7 +23,7 @@ export class PermissionsService {
     return this.http.get<Permission>(url);
   }
   addPermission(permission: Permission): Observable<Permission> {
-    return this.http.post<Permission>(`${this.url}add_permission`, permission, this.httpOptions);
+    return this.http.post<Permission>(this.url, permission, this.httpOptions);
   }
   deletePermission(id: string): Observable<Permission> {
     const url = `${this.url}${id}`;

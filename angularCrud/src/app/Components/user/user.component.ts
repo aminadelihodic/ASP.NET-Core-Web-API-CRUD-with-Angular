@@ -56,7 +56,7 @@ export class UserComponent implements OnInit {
   delete(user: User): void {
     alert("Deleted successfully")
     this.users = this.users.filter(h => h !== user);
-    this.userService.deleteUser(user.Id).subscribe()
+    this.userService.deleteUser(user).subscribe()
   }
   edit(userId: number) {
     this.router.navigate(['/edituser', userId]);

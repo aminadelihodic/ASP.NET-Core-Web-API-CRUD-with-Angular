@@ -15,7 +15,7 @@ export class CountryService {
   readonly url = "https://localhost:44331/api/countries/";
 
   getCountries(): Observable<Country[]> {
-    return this.http.get<Country[]>(`${this.url}get_country`).pipe(map((res: any) => {
+    return this.http.get<Country[]>(this.url).pipe(map((res: any) => {
       return res;
     }));
   }
@@ -25,12 +25,12 @@ export class CountryService {
     return this.http.get<Country>(url);
   }
   addCountry(country: Country): Observable<Country> {
-    return this.http.post<Country>(`${this.url}add_country`, country, this.httpOptions);
+    return this.http.post<Country>(this.url, country, this.httpOptions);
   }
-  deleteCountry(id: number): Observable<Country> {
-    const url = `${this.url}${id}`;
-
-    return this.http.delete<Country>(url, this.httpOptions);
+  deleteCountry(country:Country): Observable<Country> {
+    const url = `${this.url}`;
+    const newHttpOptions = {...this.httpOptions,body:country}
+    return this.http.delete<Country>(url, newHttpOptions);
   }
 
   updateCountry(country: Country, id: number): Observable<Country> {

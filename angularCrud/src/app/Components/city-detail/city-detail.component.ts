@@ -10,7 +10,8 @@ import { CitiesService } from 'src/app/Services/cities.service';
 export class CityDetailComponent implements OnInit {
   formValue!: FormGroup;
   editCity = new FormGroup({
-    Name: new FormControl('')
+    Name: new FormControl(''),
+    CountryId: new FormControl('')
   })
   constructor(private route: ActivatedRoute,
     private cityService: CitiesService,
@@ -20,7 +21,8 @@ export class CityDetailComponent implements OnInit {
     console.log(this.route.snapshot.params.id);
     this.cityService.getCity(this.route.snapshot.params.id).subscribe((result) =>
       this.editCity = new FormGroup({
-        Name: new FormControl(result['Name'])
+        Name: new FormControl(result['Name']),
+        CountryId:new FormControl(result['CountryId'])
       })
     )
   }

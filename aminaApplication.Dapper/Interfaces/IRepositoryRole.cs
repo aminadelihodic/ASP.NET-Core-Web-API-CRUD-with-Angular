@@ -11,5 +11,6 @@ namespace aminaApplication.Dapper.Interfaces
     {
         Task<Role> GetById(string id);
         void Delete(string id);
+        
     }
 }

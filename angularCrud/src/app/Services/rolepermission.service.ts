@@ -12,19 +12,19 @@ export class RolepermissionService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
   constructor(private http: HttpClient) { }
-  readonly url = "https://localhost:44331/api/roles/";
+  readonly url = "https://localhost:44331/api/roles/{roleId}/permissions/";
 
   public getRolePermissions(roleId: string): Observable<RolePermission[]> {
-    return this.http.get<RolePermission[]>(this.url + roleId + '/permissions');
+    return this.http.get<RolePermission[]>(this.url + roleId);
   }
   public getRolePermission(roleId: string) {
-    const url = this.url + roleId + '/permissions';
+    const url = this.url;
     return this.http.get<RolePermission>(url);
   }
 
-  addRolePermission(roleId: string, rolepermission: RolePermission): Observable<RolePermission> {
-    let api = `${this.url}${roleId}/permissions/${rolepermission.PermissionId}`;
-    return this.http.post<RolePermission>(api, rolepermission)
+  addRolePermission(roleId: string, permissionId:string): Observable<RolePermission> {
+    let api = `${this.url}${permissionId}`;
+    return this.http.post<RolePermission>(api, roleId)
       .pipe(
         catchError(this.handleError)
       )

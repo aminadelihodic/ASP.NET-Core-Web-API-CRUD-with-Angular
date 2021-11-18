@@ -14,7 +14,7 @@ export class RoleService {
   readonly url = "https://localhost:44331/api/roles/";
 
   public getRoles(): Observable<[]> {
-    return this.http.get<Role[]>(`${this.url}get_role`).pipe(map((res: any) => {
+    return this.http.get<Role[]>(this.url).pipe(map((res: any) => {
       return res;
     }));
   }
@@ -23,7 +23,7 @@ export class RoleService {
     return this.http.get<Role>(url);
   }
   addRole(role: Role): Observable<Role> {
-    return this.http.post<Role>(`${this.url}add_role`, role, this.httpOptions);
+    return this.http.post<Role>(this.url, role, this.httpOptions);
   }
   deleteRole(id: string): Observable<Role> {
     const url = `${this.url}${id}`;
