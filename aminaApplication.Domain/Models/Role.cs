@@ -12,7 +12,7 @@ namespace amina_WebApplication.Models
     public class Role : IEntity<string>
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        
         [Column("id")]
         public string Id { get; set; }
         [Column("description")]

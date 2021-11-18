@@ -12,7 +12,8 @@ namespace amina_WebApplication.Models
     public class Permission : IEntity<string>
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        
+
         [Column("id")]
         public string Id { get; set; }
         [Column("description")]
