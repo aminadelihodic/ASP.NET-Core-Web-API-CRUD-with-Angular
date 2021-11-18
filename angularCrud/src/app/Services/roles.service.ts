@@ -25,10 +25,10 @@ export class RoleService {
   addRole(role: Role): Observable<Role> {
     return this.http.post<Role>(this.url, role, this.httpOptions);
   }
-  deleteRole(id: string): Observable<Role> {
-    const url = `${this.url}${id}`;
-
-    return this.http.delete<Role>(url, this.httpOptions);
+  deleteRole(role:Role): Observable<Role> {
+    const url = this.url;
+    const newHttpOption = {...this.httpOptions,body:role}
+    return this.http.delete<Role>(url, newHttpOption);
   }
   updateRole(role: Role, id: string): Observable<Role> {
 

@@ -9,7 +9,6 @@ namespace aminaApplication.Dapper.Interfaces
 {
     public interface IRepositoryPermission :IRepositoryGeneric<Permission>
     {
-        Task<Permission> GetById(string id);
-        void Delete(string id);
+        
     }
 }

@@ -18,42 +18,42 @@ namespace aminaApplication.Dapper.Repository
 
         }
 
-        public void Delete(string id)
-        {
-            try
-            {
-                using (IDbConnection dbConnection = Connection)
-                {
-                    dbConnection.Open();
-                    string query = @"DELETE FROM permissions WHERE id=@id";
-                    dbConnection.Execute(query, new { id });
-                    dbConnection.Close();
-                }
-            }
-            catch (Exception ex)
-            {
+        //public void Delete(string id)
+        //{
+        //    try
+        //    {
+        //        using (IDbConnection dbConnection = Connection)
+        //        {
+        //            dbConnection.Open();
+        //            string query = @"DELETE FROM permissions WHERE id=@id";
+        //            dbConnection.Execute(query, new { id });
+        //            dbConnection.Close();
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
 
-                throw ex;
-            }
-        }
+        //        throw ex;
+        //    }
+        //}
 
-        public async Task<Permission> GetById(string id)
-        {
-            try
-            {
-                using (IDbConnection dbConnection = Connection)
-                {
-                    dbConnection.Open();
-                    string query = @"SELECT id,description FROM permissions WHERE id=@id";
-                    return await dbConnection.QueryFirstOrDefaultAsync<Permission>(query, new { id });
-                }
-            }
-            catch (Exception ex)
-            {
+        //public async Task<Permission> GetById(string id)
+        //{
+        //    try
+        //    {
+        //        using (IDbConnection dbConnection = Connection)
+        //        {
+        //            dbConnection.Open();
+        //            string query = @"SELECT id,description FROM permissions WHERE id=@id";
+        //            return await dbConnection.QueryFirstOrDefaultAsync<Permission>(query, new { id });
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
 
-                throw ex;
-            }
-        }
+        //        throw ex;
+        //    }
+        //}
 
       
     }

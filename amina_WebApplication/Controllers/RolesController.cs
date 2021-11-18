@@ -27,12 +27,11 @@ namespace amina_WebApplication.Controllers
             return Ok();
         }
         [HttpDelete]
-        [Route("{id}")]
-
-        public IActionResult Delete([FromRoute] string id)
+        public IActionResult Delete([FromBody] Role role)
         {
-            _repositoryRole.Delete(id);
-            return Ok();
+
+            _repositoryRole.Delete(role);
+            return Ok(role);
         }
         [HttpGet]
 
@@ -50,10 +49,10 @@ namespace amina_WebApplication.Controllers
         }
         [HttpGet]
         [Route("{id}")]
-        public async Task<IActionResult> GetById(string id)
+        public IActionResult GetById([FromHeader] Role role)
         {
-            var roles = await _repositoryRole.GetById(id);
-            return Ok(roles);
+            _repositoryRole.GetById(role);
+            return Ok(role);
         }
     }
 }

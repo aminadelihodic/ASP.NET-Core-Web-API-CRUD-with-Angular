@@ -27,12 +27,11 @@ namespace amina_WebApplication.Controllers
             return Ok();
         }
         [HttpDelete]
-        [Route("{id}")]
-
-        public IActionResult Delete([FromRoute] string id)
+        public IActionResult Delete([FromBody] Permission permission)
         {
-            _repositoryPermission.Delete(id);
-            return Ok();
+
+            _repositoryPermission.Delete(permission);
+            return Ok(permission);
         }
         [HttpGet]
 
@@ -50,10 +49,10 @@ namespace amina_WebApplication.Controllers
         }
         [HttpGet]
         [Route("{id}")]
-        public async Task<IActionResult> GetById(string id)
+        public IActionResult GetById([FromHeader] Permission permission)
         {
-            var permissions = await _repositoryPermission.GetById(id);
-            return Ok(permissions);
+            _repositoryPermission.GetById(permission);
+            return Ok(permission);
         }
     }
 }

@@ -12,13 +12,11 @@ namespace amina_WebApplication.Models
     public class RolePermission
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        
         [Column("role_id")]
         public string RoleId { get; set; }
         [Column("permission_id")]
         public string PermissionId { get; set; }
-       
-
-       
+        
     }
 }

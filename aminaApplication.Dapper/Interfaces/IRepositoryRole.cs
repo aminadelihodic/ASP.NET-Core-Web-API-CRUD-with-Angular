@@ -9,8 +9,7 @@ namespace aminaApplication.Dapper.Interfaces
 {
     public interface IRepositoryRole: IRepositoryGeneric<Role>
     {
-        Task<Role> GetById(string id);
-        void Delete(string id);
+        
         
     }
 }

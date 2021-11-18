@@ -35,7 +35,7 @@ export class RolesComponent implements OnInit {
   delete(role: Role): void {
     alert("Deleted successfully")
     this.roles = this.roles.filter(h => h !== role);
-    this.roleService.deleteRole(role.Id).subscribe()
+    this.roleService.deleteRole(role).subscribe()
   }
   show(id: string) {
     window.location.href = "roles/" + id;

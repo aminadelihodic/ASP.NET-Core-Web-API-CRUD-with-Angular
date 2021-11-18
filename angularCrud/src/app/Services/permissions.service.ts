@@ -25,10 +25,10 @@ export class PermissionsService {
   addPermission(permission: Permission): Observable<Permission> {
     return this.http.post<Permission>(this.url, permission, this.httpOptions);
   }
-  deletePermission(id: string): Observable<Permission> {
-    const url = `${this.url}${id}`;
-
-    return this.http.delete<Permission>(url, this.httpOptions);
+  deletePermission(permission:Permission): Observable<Permission> {
+    const url = this.url;
+    const newHttpOption = {...this.httpOptions,body:permission}
+    return this.http.delete<Permission>(url, newHttpOption);
   }
   updatePermission(permission: Permission, id: string): Observable<Permission> {
     permission.Id = id;

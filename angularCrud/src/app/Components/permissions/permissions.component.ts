@@ -36,7 +36,7 @@ export class PermissionsComponent implements OnInit {
   delete(permission: Permission): void {
     alert("Deleted successfully")
     this.permissions = this.permissions.filter(h => h !== permission);
-    this.permissionService.deletePermission(permission.Id).subscribe()
+    this.permissionService.deletePermission(permission).subscribe()
   }
   edit(permissionId: string) {
     this.router.navigate(['/update', permissionId]);
