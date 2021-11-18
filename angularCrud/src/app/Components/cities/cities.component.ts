@@ -45,7 +45,7 @@ export class CitiesComponent implements OnInit {
   delete(city: City): void {
     alert("Deleted successfully")
     this.cities = this.cities.filter(h => h !== city);
-    this.cityService.deleteCity(city.Id).subscribe();
+    this.cityService.deleteCity(city).subscribe();
   }
   editButtonClick(cityId: number) {
     this.router.navigate(['cityedit/', cityId]);

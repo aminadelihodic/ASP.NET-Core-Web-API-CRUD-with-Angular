@@ -14,7 +14,7 @@ export class CitiesService {
   readonly url = "https://localhost:44331/api/cities/";
 
   getCities(): Observable<City[]> {
-    return this.http.get<City[]>(`${this.url}get_cities`,).pipe(map((res: any) => {
+    return this.http.get<City[]>(this.url).pipe(map((res: any) => {
       return res;
     }));
   }
@@ -23,12 +23,12 @@ export class CitiesService {
     return this.http.get<City>(url);
   }
   addCity(city: City): Observable<City> {
-    return this.http.post<City>(`${this.url}add_city`, city, this.httpOptions);
+    return this.http.post<City>(this.url, city, this.httpOptions);
   }
-  deleteCity(id: number): Observable<City> {
-    const url = `${this.url}${id}`;
-
-    return this.http.delete<City>(url, this.httpOptions);
+  deleteCity(city:City): Observable<City> {
+    const url = this.url;
+    const newHttpOptions = {...this.httpOptions,body:city}
+    return this.http.delete<City>(url, newHttpOptions);
   }
   updateCity(city: City, id: number): Observable<City> {
     city.Id = id;
