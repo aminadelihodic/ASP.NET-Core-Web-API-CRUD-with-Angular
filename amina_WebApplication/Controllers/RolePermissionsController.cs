@@ -19,12 +19,12 @@ namespace amina_WebApplication.Controllers
             _repositoryRolePermission = repositoryRolePermission;
         }
 
-        
+
         [HttpPost]
         [Route("{permissionId}")]
-        public IActionResult Insert(RolePermission rolePermission)
+        public IActionResult Insert(string roleId, string permissionId)
         {
-            _repositoryRolePermission.Insert(rolePermission);
+            _repositoryRolePermission.Insert(roleId,permissionId);
             return Ok();
         }
         [HttpDelete]
@@ -43,7 +43,7 @@ namespace amina_WebApplication.Controllers
             return Ok(roles);
         }
         [HttpPut]
-
+        [Route("{id}")]
         public IActionResult Update([FromBody] RolePermission rolePermission)
         {
             _repositoryRolePermission.Update(rolePermission);

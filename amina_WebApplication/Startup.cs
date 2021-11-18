@@ -1,6 +1,9 @@
+using amina_WebApplication.Models;
 using aminaApplication.Dapper.Interfaces;
 using aminaApplication.Dapper.Repository;
 using aminaApplication.Domain.Models;
+using Dapper.FastCrud;
+using DapperExtensions.Sql;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -33,6 +36,7 @@ namespace amina_WebApplication
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+          
             #region JWT
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(opt =>
@@ -49,16 +53,8 @@ namespace amina_WebApplication
                 };
             });
             #endregion
-            //}
-            //{
-            //    opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-            //    opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            //}).AddJwtBearer(options =>
-            //{
-            //    options.RequireHttpsMetadata = false;
-            //    options.SaveToken = true;
+          
 
-            //});
 
             Dapper.DefaultTypeMap.MatchNamesWithUnderscores = true;
             string dbConnectionString = this.Configuration.GetConnectionString("Database");
@@ -103,6 +99,7 @@ namespace amina_WebApplication
      }
  });
             });
+            OrmConfiguration.DefaultDialect = SqlDialect.PostgreSql;
             
             services.AddControllers()
                    .ConfigureApiBehaviorOptions(options =>
@@ -124,6 +121,14 @@ namespace amina_WebApplication
                            .AllowAnyHeader();
                 });
             });
+            
+            services.AddTransient<IRepositoryGeneric<City>, RepositoryGeneric<City>>();
+            services.AddTransient<IRepositoryGeneric<Country>, RepositoryGeneric<Country>>();
+            services.AddTransient<IRepositoryGeneric<Permission>, RepositoryGeneric<Permission>>();
+            services.AddTransient<IRepositoryGeneric<Role>, RepositoryGeneric<Role>>();
+            services.AddTransient<IRepositoryGeneric<User>, RepositoryGeneric<User>>();
+            services.AddTransient<IRepositoryGeneric<RolePermission>, RepositoryGeneric<RolePermission>>();
+
             services.AddScoped<IRepositoryCountry,RepositoryCountry>();
             services.AddScoped<IRepositoryCity, RepositoryCity>();
             services.AddScoped<IRepositoryPermission, RepositoryPermission>();

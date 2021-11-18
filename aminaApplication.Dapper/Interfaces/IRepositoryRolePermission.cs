@@ -11,6 +11,7 @@ namespace aminaApplication.Dapper.Interfaces
     {
         Task<IEnumerable<RolePermission>> GetAll(string roleId);
         Task<IEnumerable<RolePermission>> GetById(string id);
-        void Delete(string roleId,string permisionId);
+        void Delete(string roleId, string permisionId);
+        void Insert(string roleId, string permissionId);
     }
 }

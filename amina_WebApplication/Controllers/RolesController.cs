@@ -36,9 +36,9 @@ namespace amina_WebApplication.Controllers
         }
         [HttpGet]
 
-        public async Task<IActionResult> GetAll()
+        public IActionResult GetAll()
         {
-            var roles = await _repositoryRole.GetAll();
+            var roles = _repositoryRole.GetAll();
             return Ok(roles);
         }
         [HttpPut]

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Abp.Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -8,12 +9,18 @@ using System.Threading.Tasks;
 namespace amina_WebApplication.Models
 {
     [Table("roles")]
-    public class Role
+    public class Role : IEntity<string>
     {
-
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("id")]
         public string Id { get; set; }
         [Column("description")]
         public string Description { get; set; }
+
+        public bool IsTransient()
+        {
+            return this.Id == default(string);
+        }
     }
 }

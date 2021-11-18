@@ -27,19 +27,17 @@ namespace amina_WebApplication.Controllers
             return Ok(country);
         }
         [HttpDelete]
-        [Route("{id}")]
-
-        public IActionResult Delete(int id)
+        public IActionResult Delete([FromBody] Country country)
         {
 
-            _countryRepository.Delete(id);
-            return Ok();
+            _countryRepository.Delete(country);
+            return Ok(country);
         }
         [HttpGet]
 
-        public async Task<IActionResult> GetAll()
+        public IActionResult GetAll()
         {
-            var countries = await _countryRepository.GetAll();
+            var countries = _countryRepository.GetAll();
             return Ok(countries);
         }
         [HttpPut]
@@ -51,10 +49,10 @@ namespace amina_WebApplication.Controllers
         }
         [HttpGet]
         [Route("{id}")]
-        public async Task<IActionResult> GetById(int id)
+        public IActionResult GetById([FromHeader] Country country)
         {
-            var countries = await _countryRepository.GetById(id);
-            return Ok(countries);
+            _countryRepository.GetById(country);
+            return Ok(country);
         }
 
     }

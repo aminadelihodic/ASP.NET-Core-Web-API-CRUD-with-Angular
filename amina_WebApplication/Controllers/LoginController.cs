@@ -107,6 +107,7 @@ namespace amina_WebApplication.Controllers
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
+        [HttpGet]
         private async Task<Login> AuthentificationUser(string username, string password)
         {
             return await _repositoryLogin.GetUsernamePassword(username,password);

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Abp.Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 namespace amina_WebApplication.Models
 {
     [Table("cities")]
-    public class City
+    public class City:IEntity<int>
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -23,5 +24,9 @@ namespace amina_WebApplication.Models
         [NotMapped]
         public string CountryName { get; set; }
 
+        public bool IsTransient()
+        {
+            return this.Id == default(int);
+        }
     }
 }

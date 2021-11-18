@@ -36,9 +36,9 @@ namespace amina_WebApplication.Controllers
         }
         [HttpGet]
 
-        public async Task<IActionResult> GetAll()
+        public IActionResult GetAll()
         {
-            var permissions = await _repositoryPermission.GetAll();
+            var permissions = _repositoryPermission.GetAll();
             return Ok(permissions);
         }
         [HttpPut]
@@ -50,7 +50,7 @@ namespace amina_WebApplication.Controllers
         }
         [HttpGet]
         [Route("{id}")]
-        public async Task<IActionResult> GetGetById(string id)
+        public async Task<IActionResult> GetById(string id)
         {
             var permissions = await _repositoryPermission.GetById(id);
             return Ok(permissions);

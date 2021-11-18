@@ -2,8 +2,10 @@
 using aminaApplication.Dapper.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Npgsql;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -11,26 +13,24 @@ namespace amina_WebApplication.Controllers
 {
     [Route("api/cities/")]
     [ApiController]
-    public class CitiesController : Controller
+    public class CitiesController : ControllerBase
     {
         private readonly IRepositoryCity _repositoryCity;
-
         public CitiesController(IRepositoryCity repositoryCity)
         {
             _repositoryCity = repositoryCity;
 
         }
         [HttpDelete]
-        [Route("{id}")]
-        public IActionResult Delete([FromRoute] int id)
+        public IActionResult Delete([FromBody] City city)
         {
-            _repositoryCity.Delete(id);
-            return Ok();
+            _repositoryCity.Delete(city);
+            return Ok(city);
         }
         [HttpGet]
-        public async Task<IActionResult> GetAllAsync()
+        public IActionResult GetAll()
         {
-            var cities = await _repositoryCity.GetAll();
+            var cities = _repositoryCity.GetAll();
             return Ok(cities);
         }
         [HttpPost]
@@ -41,10 +41,10 @@ namespace amina_WebApplication.Controllers
         }
         [HttpGet]
         [Route("{id}")]
-        public async Task<IActionResult> GetByIdAsync(int id)
+        public  IActionResult GetById([FromHeader] City city)
         {
-            var cities = await _repositoryCity.GetById(id);
-            return Ok(cities);
+            _repositoryCity.GetById(city);
+            return Ok(city);
         }
         [HttpPut]
         [Route("{id}")]
@@ -53,5 +53,6 @@ namespace amina_WebApplication.Controllers
             _repositoryCity.Update(city);
             return Ok(city);
         }
+
     }
 }
